@@ -41,8 +41,25 @@ require("lazy").setup({
   -- this is equivalent to setup({}) function
 },
   {
-    'nvim-lualine/lualine.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' }
-  }
+    "nvim-lualine/lualine.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" }, -- アイコンのサポートが必要
+    config = function()
+      require("lualine").setup({
+        options = {
+          theme = "gruvbox",       -- テーマを変更（例: gruvbox）
+          section_separators = "", -- セクション区切りをオフ
+          component_separators = "", -- コンポーネント区切りをオフ
+        },
+        sections = {
+          lualine_a = { "mode" },
+          lualine_b = { "branch", "diff", "diagnostics" },
+          lualine_c = { "filename" },
+          lualine_x = { "encoding", "fileformat", "filetype" },
+          lualine_y = { "progress" },
+          lualine_z = { "location" }
+        },
+      })
+    end,
+  },
   -- その他のプラグインをここに追加
 })
