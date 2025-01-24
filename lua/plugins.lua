@@ -23,28 +23,7 @@ require("lazy").setup({
       vim.cmd([[colorscheme tokyonight]])
     end,
   },
-
-  -- 例: Telescope
-  {
-    "nvim-telescope/telescope.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    cmd = "Telescope",
-    config = function()
-      require("telescope").setup({})
-    end,
-  },
-
-  -- 例: Treesitter
-  {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    config = function()
-      require("nvim-treesitter.configs").setup({
-        highlight = { enable = true },
-      })
-    end,
-  },
-  {'akinsho/toggleterm.nvim', version = "*", config = true },
+  { 'akinsho/toggleterm.nvim', version = "*", config = true },
   {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
@@ -54,7 +33,16 @@ require("lazy").setup({
       "MunifTanjim/nui.nvim",
       -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
     }
-}
+  }, {
+  'windwp/nvim-autopairs',
+  event = "InsertEnter",
+  config = true
+  -- use opts = {} for passing setup options
+  -- this is equivalent to setup({}) function
+},
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' }
+  }
   -- その他のプラグインをここに追加
 })
-
