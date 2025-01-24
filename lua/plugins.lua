@@ -46,8 +46,8 @@ require("lazy").setup({
     config = function()
       require("lualine").setup({
         options = {
-          theme = "gruvbox",       -- テーマを変更（例: gruvbox）
-          section_separators = "", -- セクション区切りをオフ
+          theme = "gruvbox",         -- テーマを変更（例: gruvbox）
+          section_separators = "",   -- セクション区切りをオフ
           component_separators = "", -- コンポーネント区切りをオフ
         },
         sections = {
@@ -60,6 +60,21 @@ require("lazy").setup({
         },
       })
     end,
+  },
+  {
+    "neovim/nvim-lspconfig",
+  },
+
+  -- 補完プラグイン
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp",     -- LSPの補完ソース
+      "hrsh7th/cmp-buffer",       -- バッファの補完
+      "hrsh7th/cmp-path",         -- ファイルパス補完
+      "saadparwaiz1/cmp_luasnip", -- スニペット補完
+      "L3MON4D3/LuaSnip",         -- スニペットエンジン
+    },
   },
   -- その他のプラグインをここに追加
 })
